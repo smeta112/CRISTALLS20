@@ -44,9 +44,12 @@ while True:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
         telega_rect.x = telega_rect.x - speed_t
+        if telega_rect.x < 0:
+            telega_rect.x = 0
     elif keys[pygame.K_RIGHT]:
         telega_rect.x = telega_rect.x + speed_t
-
+        if telega_rect.x > W - telega_rect.width:
+            telega_rect.x = W - telega_rect.width
 
     window.blit(bg_image, (0,0))
     cristalls.draw(window)
